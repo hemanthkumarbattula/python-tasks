@@ -1,0 +1,91 @@
+Part A:
+-----------
+What type of values are these?
+
+1. 3.25 + 4
+A) Float
+>>>
+>>> type(3.25+4)
+<class 'float'>
+>>>
+
+2. ["abc", 34, 4.34, 23]
+A)List
+>>> type(["abc", 34, 4.34, 23])
+<class 'list'>
+>>>
+
+3. True
+A) Boolean
+>>>
+>>> type(True)
+<class 'bool'>
+>>>
+
+4.“Hello" + "World"
+A) String
+>>>
+>>> type("Hello" + "World")
+<class 'str'>
+>>>
+>>>
+
+
+
+Part B:
+--------
+Choose a suitable data type to represent the following values, justify your selection.
+
+1.Month name
+A) Month name should be 'String' type because they are names.
+
+2.Week number
+A) Week number should be an Integer(int) type as they are only numbers from 1 to 52
+
+3.Recorded temperatures on different days of a month
+A) Temperatures should be of type 'Float' as they can have decimal portion too, when calculated in degrees or fahrenheit
+
+4.Average temperature in a month
+A)Average temperature in a month should also be of type 'Float'
+
+
+Part C:
+---------
+
+Tracking Errors
+Point out errors and explain them, if any, in the following program segments without executing them.
+
+1.>>> a = 5
+  >>> b = 'string'
+  >>> c = 5.9
+  >>> print(a + " squared equals " + b + " squared " + c + " squared.")
+
+A) Might be a syntax error as, concatenation(+) does not work with a integer and string.
+correct statement can be: print(a , " squared equals " + b + " squared " , c ," squared.")
+
+2. >>> a_list = [4,5,6,7,8,9]
+   >>> print(a_list['0'])
+
+A)Should be a syntax error as index of list should be an integer and not a string
+correct statement can be:  print(a_list[0])
+
+3.>>> b = 3
+  >>> c = 4
+  >>> (b**2 + c**2)**0.5 = d
+  >>> print(d)
+
+A)Can be a syntax error as 'd' can't be assigned to an operator
+correct statement can be: d = (b**2 + c**2)**0.5
+
+4.>>> my_list = [23, "hi", 2.4]
+  >>> for item in my_list:
+  ...  print(item)
+A) No error
+
+5.>>> num=24
+  >>> a=34.999
+  >>> result=num*(13/a**2)+1.0
+  >>> print("Result:"result)
+
+A)Can be a syntax error as a comma(,) should be present after double quotes to print variable 'result' which is a float
+correct statement: print("Result:",result)

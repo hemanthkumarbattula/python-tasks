@@ -1,0 +1,124 @@
+
+1.What are two major types of function?
+
+A. In python we have two different types of functions. One is built-in function and the other is user defined function.
+   Built in functions are already defined and can be used by importing as modules. User defined functions are defined by the
+   programmer. Each user defined function or in-built function can take inputs called arguments and return some result called
+   a return value. Based on this functions can be defined in four ways:
+
+   1. Function with no argument and no Return value
+   2. Function with no argument and with Return value
+   3. Function with an argument and No Return value
+   4. Function with an argument and Return value
+
+2. What is difference between defining a function and calling a function?
+
+A. Defining is function means giving a name to the function and declaring the function. In other words, defining a function is
+   writing a block of code that does a particular operation by taking some inputs  called arguments and return a value of specific type.
+   Neither the parameters nor return value are mandatory.
+   A function call is the code used to pass control to a function or in other words, just to use a pre defined function.
+   example:
+   Function Definition:
+
+   def add(a,b):
+       return a+b
+
+   Function call:
+
+   c=add(a,b)
+
+3. What is difference between function parameters and function arguments?
+
+A. Parameter is something that is used inside a function definition. Parameter is a variable in the declaration of a function.
+   When a function is called, the date we pass to the function are called arguments. The arguments you pass become the values
+   for the function parameters.
+
+
+4. Variables and parameters are said to be local to a function. Please explain.
+
+A. The variables and parameters are created during the function call and gets destroyed after return.
+   You cannot use a variable defined inside a function out side the definition of the function.
+   Variables that are declared inside the function are always local to the function and its called scope of the variable.
+   The parameters are also local and act as local variables. They get created when a function is called and destroyed when the function returns.
+   Also it is not possible for a function to set a local variable to a value and recover it during next function call.
+   Every time a function is called it creates new local variables and destroys them after function returns.
+
+5. What is difference between a function and a module.
+
+A. Function is nothing but a piece of code that accepts some arguments and after execution returns a result. (Sometimes none)
+   A module in python, is nothing but a namespace to pull functions from, using import. A module aggregates multiple functions into
+   a logical block that can be referred and used in other areas of program.
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Output and Debugging
+Consider the following code
+
+
+def b(z):
+    prod = a(z, z)
+    return prod
+
+def a(x, y):
+    x=x+1
+    return x * y
+
+def swap(a, b):
+    c = a
+    a = b
+    b = c
+
+def c():
+    a = 1
+    b = 2
+    swap(a, b)
+    print(a)
+    print(b)
+
+Given the above functions definitions, what will be the output of following function calls.
+Before you reach for the Python interpreter, try to execute the code in your head. Give a brief explanation.
+
+1. print(b(5))
+A. when print(b(5)) is called, it goes to function b(z) and the z value becomes 5. Then it goes to a(z,z) (where z=5).
+   Now inside a(x,y) (where both x=y=5). executes x=x+1, (now x=5+1==> x=6)
+   Then return x*y(6*5=30). so now it returns to function b and the return value is initialized to prod which is 30.
+   And now b returns the prd value and it prints 30.
+
+2. print(a(9,7))
+A. Now it call finction a with two arguments 9 and 7 and the parameters of a which are x and y becomes 9 and 7 respectively.
+   Now x=x+1 is executed which means x=9+1=10 and now the next statement return the value of x*y which is 10*7 = 70.
+   Now the print function prints 70 to the output.
+
+
+3. print(b('a'))
+A. when print(b('a')) is called, it goes to function b(z) and the z value becomes 'a'. Then it goes to a(z,z) (where z='a').
+   Now inside a(x,y) (where both x=y='a'). executes x=x+1. which does x= 'a' + 1. As 'a' is a string and 1 is integer, the concatenation doesnt happens,
+   and it throws a type error.
+
+4. x = 1
+   y = 2
+   z = x
+   x = y
+   y = z
+   print(x,y)
+
+A. The program starts by initializing x=1  and y=2 , z=x( which makes z=1), x=y (which now makes x=2)
+   and y=z which now makes y=1
+   print(x,y) prints--- 2 1 (because x=2 and Y=1)
+
+5. c()
+A. Calls function c and then initializes local variables a=1 and b=2.
+   Now calls function swap with arguments 1,2.
+   Now the parameters of swap which are a and b are initialized with those values as a=1 and b=2.
+   Now a new local variable c is initialized with a which implies c=1 (as a=1)
+   Then a=b, is executes which makes a=2 (as b=2). Now b=c is executed which makes b=1 (as c=1)
+   Now the definition completes execution and all local variables are destroyed and the function returns None.
+   now the pointer is at print(a) where a=1, because the 'a' here is local variable and prints 1.
+   Now the print(b) is executed which prints 2.
+   so finally function call c() prints 1(for a) 2(for b) respectively.
+
+
+
+
+

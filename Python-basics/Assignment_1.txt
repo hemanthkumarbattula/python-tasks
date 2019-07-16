@@ -1,0 +1,261 @@
+PART-A:
+----------
+Comparison:
+-----------
+-->When we run an statement with print in REPL, it executes the statement and print the result to the user.
+-->when we run an expression(1+1) in REPL, it executes and prints the output to user even if it doesn't have a print.
+-->When running them as a script,  the statement with a 'print', returns result to user output.
+-->When running them as a script, the expression(1+1) without a print statement is evaluated(executed successfully) but no result is printed.
+----------------------------------------------------------------------------------------------------------------------------------------------
+Part-B
+----------
+Exercise1.1:
+-----------
+1. In a print statement, what happens if you leave out one of the parentheses, or both?
+
+A: Throws a syntax error
+
+>>> print"hello, world!")
+  File "<stdin>", line 1
+    print"hello, world!")
+                       ^
+SyntaxError: invalid syntax
+
+-------------------------------------------------------------------------------------------------------------
+2. If you are trying to print a string, what happens if you leave out one of the quotation marks,
+or both?
+
+A: Throws a syntax error
+
+>>> print(hello, world!")
+  File "<stdin>", line 1
+    print(hello, world!")
+                      ^
+SyntaxError: invalid syntax
+-------------------------------------------------------------------------------------------------------------------
+3. You can use a minus sign to make a negative number like -2. What happens if you put a plus
+sign before a number? What about 2++2?
+A: prints 4. (Similar to '2+(+2)' and 2+(-2))
+>>>
+>>>
+>>> 2++2
+4
+>>>
+
+>>> 2+(-2)
+0
+>>>
+
+----------------------------------------------------------------------------------------------------------------
+4. In math notation, leading zeros are ok, as in 02. What happens if you try this in Python?
+
+A: Throws a syntax error
+>>> 2
+2
+>>> 02
+  File "<stdin>", line 1
+    02
+     ^
+SyntaxError: invalid token
+----------------------------------------------------------------------------------------------------------------------
+5. What happens if you have two values with no operator between them?
+
+A: Throws a syntax error
+>>> 2 2
+  File "<stdin>", line 1
+    2 2
+      ^
+SyntaxError: invalid syntax
+>>>
+
+----------------------------------------------------------------------------------------------------------------
+Exercise 1.2:
+--------------
+
+1. How many seconds are there in 42 minutes 42 seconds?
+
+>>>
+>>> 42*60+42
+2562
+
+A: There are 2562 seconds in 42 minutes 42 seconds
+----------------------------------------------------------------------------------------------
+2. How many miles are there in 10 kilometers? Hint: there are 1.61 kilometers in a mile.
+
+>>> 10/1.61
+6.211180124223602
+>>>
+
+A: There are 6.211180124223602 miles in 10 kilometers
+------------------------------------------------------------------------------------------------------
+3. If you run a 10 kilometer race in 42 minutes 42 seconds, what is your average pace (time per
+mile in minutes and seconds)? What is your average speed in miles per hour?
+
+>>> (10/1.61)/((42*60)+42)
+0.0024243482139826703
+>>> (10/1.61)/(42+(42/60))
+0.14546089283896022
+>>> (10/1.61)/((42+(42/60))/60)
+8.727653570337614
+
+A)
+Average miles per second is 0.0024243482139826703
+Average miles per minute is 0.14546089283896022
+Average miles per hour is 8.727653570337614
+
+---------------------------------------------------------------------------------------------------------------
+Exercise 2.1:
+------------
+
+1)We have seen that n = 42 is legal. What about 42 = n?
+>>>
+>>> n=42
+>>> 42=n
+  File "<stdin>", line 1
+SyntaxError: can't assign to literal
+
+------------------------------------------------------------------------------------------------------
+2)How about x = y = 1?
+>>> x=y=1
+>>> x
+1
+>>> y
+1
+--------------------------------------------------------------------------------------------------
+3)In some languages every statement ends with a semi-colon, ;. What happens if you put a
+semi-colon at the end of a Python statement?
+
+>>> print("Hello,World!");
+Hello,World!
+>>> 2+2;
+4
+>>> 3+4;a=5;
+7
+-----------------------------------------------------------------------------------------------------
+4)What if you put a period at the end of a statement?
+>>> print("Hello,World!").
+  File "<stdin>", line 1
+    print("Hello,World!").
+                         ^
+SyntaxError: invalid syntax
+>>> 2+2.
+4.0
+>>> 3+4;a=5.
+7
+
+>>> 3+4;a=5.;
+7
+-------------------------------------------------------------------------------------------------------------
+5)In math notation you can multiply x and y like this: xy. What happens if you try that in
+Python?
+
+>>> x=3;y=5
+>>> xy
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'xy' is not defined
+>>> x*y
+15
+>>>
+
+-----------------------------------------------------------------------------------------------------------
+
+
+Exercise 2.2:
+-------------
+
+1. The volume of a sphere with radius r is 4
+3pr3. What is the volume of a sphere with radius 5?
+
+>>>
+>>> r=5
+>>> pi=22/7
+>>> volume=(4/3)*pi*(r**3)
+>>> volume
+523.8095238095237
+>>>
+
+--------------------------------------------------------------------------------------
+
+2. Suppose the cover price of a book is $24.95, but bookstores get a 40% discount. Shipping costs
+$3 for the first copy and 75 cents for each additional copy. What is the total wholesale cost for
+60 copies?
+
+>>>
+>>> price=24.95
+>>> discount=price*(40/100)
+>>> discount_price=price-discount
+>>> shipping= 3+(0.75*59)
+>>> wholesale_price=discount_price*60+shipping
+>>> wholesale_price
+945.4499999999999
+>>>
+
+---------------------------------------------------------------------------------------------------------------
+3. If I leave my house at 6:52 am and run 1 mile at an easy pace (8:15 per mile), then 3 miles at
+tempo (7:12 per mile) and 1 mile at easy pace again, what time do I get home for breakfast?
+
+>>>
+>>>
+>>> easy_pace_in_seconds=(8*60)+15
+>>> fast_pace_in_seconds=(7*60)+12
+>>> total_run_time_in_seconds=2*easy_pace_in_seconds+3*fast_pace_in_seconds
+>>> total_run_time_in_seconds
+2286
+>>> start_time="6:52"
+>>> start_time_in_seconds=6*3600+52*60
+>>> total_time=total_run_time_in_seconds+start_time_in_seconds
+>>> total_time
+27006
+>>> print("Reached time is",27006//3600,":",(27006%3600)//60,":",(27006%3600)%60
+)
+Reached time is 7 : 30 : 6
+>>>
+
+
+------------------------------------------------------------------------------------------------------------------------
+
+Part-C:
+-----------
+
+def binary_search(my_card,whole_deck):
+    top = 0
+    bottom = len(whole_deck)
+    while True:
+        middle = (top+bottom)//2
+        if whole_deck[middle] == my_card:
+            return middle
+        elif my_card < whole_deck[middle]:
+            bottom = middle
+        else:
+            top = middle+1
+print(binary_search(11,[10,11,13,14])) # should print 1
+print(binary_search(14,[10,11,13,14])) # should print 3
+#print(binary_search(12,[10,11,13,14]))
+
+Q) Describe what happens. Why do you think this is? What kind of error are we dealing with here (syntax/runtime/semantic)?
+ Look again at page 7 of the lecture slides.
+ Is this a problem with the implementation or with the algorithm? Hand in your answers as prose.
+
+ A)
+What's Happening?
+
+-->The 'binary_search' function is being called with two values 'my_card' and 'whole_deck'.
+-->The 'whole_deck' is a list and the algorithm tries to find out if 'my_card' is present in the 'whole_deck'
+-->In the example the list is sorted.(ascending order)
+-->so, the algorithm tries to initialize a min(top=0) and max value(bottom=len(list)), then gets the 'middle' value of min and max and tries to find if the 'my_card' is present in the list of 'whole_deck' based on middle value it calculates.
+-->If the value at middle position is equal to my_card value, the program is halted and it prints the 'middle' position value.
+-->If 'my_card' is not found at the 'middle' position, then the algorithm compares 'my_card' value and value at 'middle' position of whole_deck.
+-->If my_card value is less than the value at middle position, the max value is re initialized as 'middle' value.
+-->If my_card value not less than value at middle position, then min value is set to 'middle+1'
+-->The whole procedure described above is continuously executed(infinite loop) until it finds the 'my_card' in 'whole_deck'
+
+Observations:
+
+-->when 'my_card' is not available in 'whole_deck' the execution doesn't stop.
+-->It is stuck in an infinite loop. This is a semantic error.
+-->The implementation was wrong.
+-->Also the function doesn't work with a non-sorted list.
+-->There should be a condition check, to exit, if value not found after binary searching the sorted list.
+
+
